@@ -15,27 +15,29 @@ namespace MethodOverloading
         }
         public static string Add(int a, int b, bool dollars)
         {
-            string money;
-            if (a + b == 1)
-                {
-                    money = $"{a + b} dollar";
-                }
+            if (dollars == false)
+            {
+                return $"{a + b}";
+            }
+            else if (dollars == true && a + b == 1)
+            {
+                return $"{a + b} dollar";
+            }
             else
-                {
-                    money = $"{a + b} dollars";
-                }
-                return money;
+            {
+                return $"{a + b} dollars";
+            }
             
         }
 
         static void Main(string[] args)
         {
-            var two = Add(5, 13);
+            var two = Add(1, 6);
             Console.WriteLine(two);
-            var decimals = Add(5.4, 8.7);
-            Console.WriteLine(decimals);
-            var howMuchMoney = Add(1, 0, true);
+            var howMuchMoney = Add(6, 111, true);
             Console.WriteLine(howMuchMoney);
+            var dot = Add(5.6, 9.9);
+            Console.WriteLine(dot);
         }
     }
 }
